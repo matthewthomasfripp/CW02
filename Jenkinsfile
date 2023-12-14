@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         registry = 'matthewthomasfripp/project'
-        registryCredential = 'dockerhub_id'
+        registryCredential = 'Docker'
         dockerImage = ''
     }
 
