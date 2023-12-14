@@ -28,7 +28,8 @@ pipeline {
                         sh "docker stop $containerId"
                     } else {
                         error "Container not running"
-                    }		
+                    }
+                }
             }
         }
 
