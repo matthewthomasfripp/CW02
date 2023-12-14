@@ -1,0 +1,8 @@
+- name: Docker image deploy
+  hosts: localhost
+  user: ubuntu
+
+  tasks:
+  - name: kubernetes deploy
+    shell:
+      cmd: kubectl create deployment kubernetes-server --image=matthewthomasfripp/project:latest
