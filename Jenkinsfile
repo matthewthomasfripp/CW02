@@ -20,7 +20,6 @@ pipeline {
         stage('Test docker container') {
             steps {
                 echo 'Testing docker container'
-                sh 'docker rm -f cw2 || true'
 		sh 'docker run --name cw2 -p 80:80 -d ' + registry
 		sh 'docker exec cw2 echo "I am alive!"'
 		sh 'docker rm -f cw2 || true'
