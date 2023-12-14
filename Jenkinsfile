@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = 'matthewthomasfripp/project'
+        registry = 'matthewthomasfripp/project:latest'
         registryCredential = 'Docker'
         dockerImage = ''
     }
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building docker image'
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry
                 }
             }
         }
@@ -21,7 +21,8 @@ pipeline {
             steps {
                 echo 'Testing docker container'
                 sh 'docker rm -f cw2 || true'
-		sh 'docker run --name cw2 -p 80:80 -d ' + registry + ":$BUILD_NUMBER"
+		sh 'docker run --name cw2 -p 80:80 -d ' + registry
+		sh 'docker exec cw2 echo "I am alive!"'
 		sh 'docker rm -f cw2 || true'
             }
         }
