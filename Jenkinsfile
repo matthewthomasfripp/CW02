@@ -40,7 +40,7 @@ pipeline {
 	stage('Deploy to kubernetes') {
             steps {
                 echo 'Deploying to kubernetes'
-		sh 'ssh ubuntu@54.165.185.25 kubectl rollout restart deployment/kubernetes-server'
+		sh 'ssh ubuntu@34.224.5.66 kubectl rollout restart deployment/kubernetes-server'
             }
         }
     }
